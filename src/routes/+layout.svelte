@@ -1,5 +1,6 @@
 <script>
+  import Nav from "$lib/components/Nav.svelte";
   import "../app.postcss";
 </script>
 
-<slot />
+<Nav><slot /></Nav>
