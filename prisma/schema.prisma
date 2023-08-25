@@ -8,11 +8,11 @@ generator client {
 datasource db {
   provider = "postgresql"
 
-  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  url = env("NEON_PG") // uses connection pooling
 
-  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+  directUrl = env("NEON_PG_PULLING") // uses a direct connection
 
-  shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING") // used for migrations
+  // shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING") // used for migrations
 }
 
 model Todos {
