@@ -21,13 +21,13 @@ export const actions = {
     update_status: async (event)=>{
         const form = Object.fromEntries(await event.request.formData())as any
         const id = event.url.searchParams.get('id');
-        const status = form.status;
+        let status = form.status == 'true' ? false : true;
         await prisma.todos.update({
             where:{
                 id:Number(id)
             },
             data:{
-                done:!!status
+                done:status
             }
         })
         return

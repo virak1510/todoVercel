@@ -32,13 +32,13 @@
           </thead>
           <tbody>
             {#each todos as item, idx}
-              <tr class="line-through">
-                <th>{idx + 1}</th>
+              <tr class="">
+                <td>{idx + 1}</td>
                 <td>{item.todo}</td>
                 <td>
-                  <form action="?/update_status&id={item.id}" method="post">
+                  <form action="?/update_status&id={item.id}" method="post" use:enhance>
                     <input type="hidden" name="status" value={item.done} />
-                    <button type="submit" class="btn btn-secondary btn-xs"
+                    <button type="submit" class="btn {!item.done ?'btn-error': 'btn-success'} btn-xs"
                       >{item.done}</button
                     >
                   </form>
