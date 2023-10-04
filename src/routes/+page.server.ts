@@ -6,7 +6,7 @@ export const load = (async () => {
     const todos = await prisma.todos.findMany({
         take:50,
         orderBy:{
-            id:'asc'
+            id:'desc'
         }
     });
     return {todos};
