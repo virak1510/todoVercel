@@ -4,7 +4,10 @@ import {prisma} from '$lib/server/prisma';
 
 export const load = (async () => {
     const todos = await prisma.todos.findMany({
-        take:50
+        take:50,
+        orderBy:{
+            id:'asc'
+        }
     });
     return {todos};
 }) satisfies PageServerLoad;
